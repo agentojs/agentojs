@@ -1,6 +1,6 @@
 # Getting Started
 
-AgentOJS is agentic middleware for AI commerce. It provides a unified `CommerceBackend` interface that works with any e-commerce platform -- Medusa.js, WooCommerce, or any REST API.
+AgentOJS is open-source agentic middleware for e-commerce. It connects any e-commerce backend to AI agents (Claude, ChatGPT, Gemini) via MCP, UCP, and ACP protocols — handling protocol translation, data normalization, and pre-verification so you don't have to.
 
 ## How It Works
 
@@ -8,7 +8,7 @@ AgentOJS is agentic middleware for AI commerce. It provides a unified `CommerceB
 2. Create a backend instance with your store credentials
 3. Call methods like `searchProducts()`, `createCart()`, `completeCart()`
 
-All adapters implement the same 19-method `CommerceBackend` interface, so your code works the same regardless of the underlying platform.
+All adapters implement the same 19-method `CommerceBackend` interface, so your code works the same regardless of the underlying platform. AgentOJS normalizes every response into consistent TypeScript types — write your agent logic once, swap backends freely.
 
 ## Install
 

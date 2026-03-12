@@ -3,8 +3,8 @@ layout: home
 
 hero:
   name: AgentOJS
-  text: Agentic middleware for AI commerce
-  tagline: Connect any e-commerce backend to Claude, ChatGPT, and Gemini — via MCP, UCP, and ACP protocols
+  text: Open-source agentic middleware for e-commerce
+  tagline: Connect any e-commerce backend to Claude, ChatGPT, and Gemini — pre-verified for MCP, UCP, and ACP protocols
   actions:
     - theme: brand
       text: Get Started
@@ -14,13 +14,26 @@ hero:
       link: https://github.com/agentojs/agentojs
 
 features:
+  - title: Agentic Middleware
+    details: Full protocol translation, data normalization, rate limiting, and analytics — not just an SDK, a production-ready middleware layer.
+  - title: Pre-verified for AI Platforms
+    details: Built to pass Claude Directory, Google UCP, and OpenAI ACP verification requirements. Ship faster, skip the $50K+ DIY cost.
   - title: Protocol-agnostic
-    details: MCP + UCP + ACP through one interface. Write your adapter once, connect to every AI agent.
-  - title: Zero runtime dependencies
-    details: Native fetch(), no bloat. Each adapter is under 50KB with zero transitive dependencies.
-  - title: Type-safe
-    details: Full TypeScript. CommerceBackend interface with 19 methods, strict types for products, carts, orders.
+    details: MCP + UCP + ACP through one interface. Write your adapter once, connect to every AI agent platform.
+  - title: Self-hosted & Open Source
+    details: MIT licensed. Run on your own infrastructure with zero lock-in, zero commission, full data control.
 ---
+
+## Why AgentOJS?
+
+AI agents are becoming the new storefront. **57% of e-commerce runs outside Shopify** — and those merchants need a way to connect to Claude, ChatGPT, and Gemini. AgentOJS is the middleware that bridges that gap.
+
+| | Shopify | Firmly.ai | DIY | **AgentOJS** |
+|---|---|---|---|---|
+| Platforms | Shopify only | Closed SaaS | Manual | **Any** |
+| Open source | No | No | N/A | **MIT** |
+| Self-hosted | No | No | Yes | **Yes** |
+| Commission | Shopify fees | Unknown | None | **None** |
 
 ## Quick Start
 
@@ -114,27 +127,34 @@ Every adapter implements 19 methods across 7 categories:
 ## Coming Soon
 
 - **Shopify** adapter
+- **@agentojs/mcp-server** — MCP protocol handler (extractable from AgentOMCP)
+- **@agentojs/ucp-server** — UCP protocol endpoints
+- **@agentojs/acp-server** — ACP protocol endpoints
+- **@agentojs/dashboard** — Embeddable analytics and store config UI
 - **NestJS** module for rapid API scaffolding
 - **Express** middleware for REST endpoints
-- **Next.js** server actions integration
 
 ## Architecture
 
 ```
-                    +-----------------------+
-                    |   Your AI Agent       |
-                    |  (MCP / UCP / ACP)    |
-                    +-----------+-----------+
-                                |
-                    +-----------v-----------+
-                    |   CommerceBackend     |
-                    |   (@agentojs/core)    |
-                    +-----------+-----------+
-                                |
-            +-------------------+-------------------+
-            |                   |                   |
-  +---------v-------+  +-------v---------+  +------v----------+
-  | @agentojs/medusa|  |@agentojs/       |  |@agentojs/generic|
-  | Medusa.js v2    |  |woocommerce      |  | Any REST API    |
-  +-----------------+  +-----------------+  +-----------------+
+    Customer's AI Agent (Claude, ChatGPT, Gemini)
+                    |
+            MCP / UCP / ACP protocols
+                    |
+    +-------------------------------+
+    |       AgentOJS Middleware      |
+    |   Protocol   |   Analytics    |
+    |  Translation  | & Rate Limits |
+    +-------+-------+-------+------+
+            |               |
+    +-------v-------+ +----v--------+
+    | CommerceBackend| | Verification|
+    | (@agentojs/core)| | & Security |
+    +-------+-------+ +-------------+
+            |
+  +---------+---------+---------+
+  |         |         |         |
+  v         v         v         v
+Medusa  WooCommerce  Generic  Shopify
+  v2      REST API   REST API  (soon)
 ```

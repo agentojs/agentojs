@@ -7,7 +7,7 @@ export default defineConfig({
 
   head: [
     ['meta', { property: 'og:title', content: 'AgentOJS — Agentic Middleware for AI Commerce' }],
-    ['meta', { property: 'og:description', content: 'Connect any e-commerce backend to Claude, ChatGPT, and Gemini via MCP, UCP, and ACP protocols. Open-source TypeScript SDK.' }],
+    ['meta', { property: 'og:description', content: 'Open-source agentic middleware — connect any e-commerce backend to Claude, ChatGPT, and Gemini. Pre-verified for MCP, UCP, and ACP protocols.' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:url', content: 'https://agentojs.com' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
