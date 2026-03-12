@@ -1,7 +1,7 @@
 {
   "name": "@agentojs/generic",
   "version": "0.1.0",
-  "description": "Generic REST API adapter for AI commerce agents",
+  "description": "Connect any REST API store to AI agents (Claude, ChatGPT, Gemini) — universal adapter with field mapping",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
@@ -20,7 +20,8 @@
     "url": "https://github.com/agentojs/agentojs",
     "directory": "packages/generic"
   },
-  "keywords": ["mcp", "ucp", "acp", "commerce", "ai", "agent", "rest", "generic", "e-commerce", "field-mapping"],
+  "homepage": "https://agentojs.com",
+  "keywords": ["mcp", "ucp", "acp", "rest-api", "generic-adapter", "field-mapping", "ai-agent", "ai-commerce", "agentic-middleware", "claude", "chatgpt", "gemini", "any-backend", "custom-store", "model-context-protocol"],
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",

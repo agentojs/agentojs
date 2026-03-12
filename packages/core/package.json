@@ -1,7 +1,7 @@
 {
   "name": "@agentojs/core",
   "version": "0.1.0",
-  "description": "Core types and CommerceBackend interface for AI commerce agents",
+  "description": "Agentic middleware for AI commerce — connect any store to Claude (MCP), ChatGPT (ACP), and Gemini (UCP)",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
@@ -20,7 +20,8 @@
     "url": "https://github.com/agentojs/agentojs",
     "directory": "packages/core"
   },
-  "keywords": ["mcp", "ucp", "acp", "commerce", "ai", "agent", "e-commerce", "types", "interface"],
+  "homepage": "https://agentojs.com",
+  "keywords": ["mcp", "ucp", "acp", "ai-agent", "ai-commerce", "agentic-middleware", "claude", "chatgpt", "gemini", "e-commerce", "commerce-backend", "model-context-protocol", "unified-commerce-protocol", "agent-commerce-protocol", "open-source"],
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",
