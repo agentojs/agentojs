@@ -5,3 +5,5 @@ dist/
 coverage/
 .DS_Store
 test-packages/
+docs/.vitepress/cache/
+docs/.vitepress/dist/
