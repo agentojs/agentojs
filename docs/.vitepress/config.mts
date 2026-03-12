@@ -2,8 +2,19 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: 'AgentOJS',
-  description: 'Agentic middleware for AI commerce',
+  description: 'Agentic middleware for AI commerce — connect any e-commerce backend to Claude, ChatGPT, and Gemini via MCP, UCP, and ACP protocols',
   base: '/',
+
+  head: [
+    ['meta', { property: 'og:title', content: 'AgentOJS — Agentic Middleware for AI Commerce' }],
+    ['meta', { property: 'og:description', content: 'Connect any e-commerce backend to Claude, ChatGPT, and Gemini via MCP, UCP, and ACP protocols. Open-source TypeScript SDK.' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:url', content: 'https://agentojs.com' }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:title', content: 'AgentOJS — Agentic Middleware for AI Commerce' }],
+    ['meta', { name: 'twitter:description', content: 'Connect any e-commerce backend to Claude, ChatGPT, and Gemini via MCP, UCP, and ACP protocols.' }],
+    ['meta', { name: 'keywords', content: 'agentojs, mcp, ucp, acp, ai commerce, medusa, woocommerce, typescript, sdk' }],
+  ],
 
   themeConfig: {
     nav: [
