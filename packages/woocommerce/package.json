@@ -1,7 +1,7 @@
 {
   "name": "@agentojs/woocommerce",
   "version": "0.1.0",
-  "description": "Connect WooCommerce to AI agents (Claude, ChatGPT, Gemini) — MCP, UCP, ACP protocols",
+  "description": "WooCommerce adapter for AI commerce agents",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
@@ -20,8 +20,7 @@
     "url": "https://github.com/agentojs/agentojs",
     "directory": "packages/woocommerce"
   },
-  "homepage": "https://agentojs.com",
-  "keywords": ["mcp", "ucp", "acp", "woocommerce", "woo", "wordpress", "ai-agent", "ai-commerce", "agentic-middleware", "claude", "chatgpt", "gemini", "model-context-protocol"],
+  "keywords": ["mcp", "ucp", "acp", "commerce", "ai", "agent", "woocommerce", "woo", "e-commerce"],
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",

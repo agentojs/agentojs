@@ -1,7 +1,7 @@
 {
   "name": "@agentojs/medusa",
   "version": "0.1.0",
-  "description": "Connect Medusa.js v2 to AI agents (Claude, ChatGPT, Gemini) — MCP, UCP, ACP protocols",
+  "description": "Medusa.js v2 adapter for AI commerce agents",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
@@ -20,8 +20,7 @@
     "url": "https://github.com/agentojs/agentojs",
     "directory": "packages/medusa"
   },
-  "homepage": "https://agentojs.com",
-  "keywords": ["mcp", "ucp", "acp", "medusa", "medusajs", "medusa-v2", "ai-agent", "ai-commerce", "agentic-middleware", "claude", "chatgpt", "gemini", "headless-commerce", "model-context-protocol"],
+  "keywords": ["mcp", "ucp", "acp", "commerce", "ai", "agent", "medusa", "medusa-v2", "e-commerce"],
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",
