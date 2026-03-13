@@ -1,0 +1,55 @@
+{
+  "name": "@agentojs/express",
+  "version": "0.3.0",
+  "description": "Express middleware mounting MCP, UCP, and ACP protocols for AgentOJS",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agentojs/agentojs",
+    "directory": "packages/express"
+  },
+  "keywords": ["mcp", "ucp", "acp", "express", "middleware", "commerce", "ai", "agent", "e-commerce", "agentic middleware"],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "pnpm build"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "peerDependencies": {
+    "@agentojs/core": "^0.3.0",
+    "@agentojs/mcp": "^0.3.0",
+    "@agentojs/ucp": "^0.3.0",
+    "@agentojs/acp": "^0.3.0",
+    "express": "^4.0.0 || ^5.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1"
+  },
+  "devDependencies": {
+    "@agentojs/core": "workspace:*",
+    "@agentojs/mcp": "workspace:*",
+    "@agentojs/ucp": "workspace:*",
+    "@agentojs/acp": "workspace:*",
+    "express": "^4.21.0",
+    "@types/express": "^5.0.0",
+    "supertest": "^7.0.0",
+    "@types/supertest": "^6.0.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}

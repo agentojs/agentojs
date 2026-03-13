@@ -41,3 +41,7 @@ export {
   fromMinorUnits,
   formatPrice,
 } from './currency.js';
+
+// v0.3.0 — createAgent convenience factory
+export type { AgentOptions, AgentInstance } from './create-agent.js';
+export { createAgent } from './create-agent.js';
