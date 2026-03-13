@@ -13,14 +13,14 @@ export default defineConfig({
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:title', content: 'AgentOJS — Agentic Middleware for AI Commerce' }],
     ['meta', { name: 'twitter:description', content: 'Connect any e-commerce backend to Claude, ChatGPT, and Gemini via MCP, UCP, and ACP protocols.' }],
-    ['meta', { name: 'keywords', content: 'agentojs, mcp, ucp, acp, ai commerce, medusa, woocommerce, typescript, sdk' }],
+    ['meta', { name: 'keywords', content: 'agentojs, mcp, ucp, acp, ai commerce, medusa, woocommerce, typescript, middleware, agentic middleware' }],
   ],
 
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/getting-started' },
-      { text: 'API Reference', link: '/api/commerce-backend' },
+      { text: 'API Reference', link: '/api/commerce-provider' },
       { text: 'GitHub', link: 'https://github.com/agentojs/agentojs' },
     ],
 
@@ -33,7 +33,7 @@ export default defineConfig({
             { text: 'Medusa', link: '/guide/medusa' },
             { text: 'WooCommerce', link: '/guide/woocommerce' },
             { text: 'Generic REST', link: '/guide/generic' },
-            { text: 'Custom Backend', link: '/guide/custom-backend' },
+            { text: 'Custom Provider', link: '/guide/custom-provider' },
           ],
         },
       ],
@@ -41,9 +41,13 @@ export default defineConfig({
         {
           text: 'API Reference',
           items: [
-            { text: 'CommerceBackend', link: '/api/commerce-backend' },
+            { text: 'CommerceProvider', link: '/api/commerce-provider' },
             { text: 'Core Types', link: '/api/types' },
             { text: 'Errors', link: '/api/errors' },
+            { text: 'MCP', link: '/api/mcp' },
+            { text: 'UCP', link: '/api/ucp' },
+            { text: 'ACP', link: '/api/acp' },
+            { text: 'Express', link: '/api/express' },
           ],
         },
       ],
