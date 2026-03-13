@@ -1,7 +1,7 @@
 {
   "name": "@agentojs/core",
-  "version": "0.1.0",
-  "description": "Core types and CommerceBackend interface for AI commerce agents",
+  "version": "0.3.0",
+  "description": "Core types and CommerceProvider interface for AgentOJS agentic middleware",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
@@ -20,7 +20,7 @@
     "url": "https://github.com/agentojs/agentojs",
     "directory": "packages/core"
   },
-  "keywords": ["mcp", "ucp", "acp", "commerce", "ai", "agent", "e-commerce", "types", "interface"],
+  "keywords": ["mcp", "ucp", "acp", "commerce", "ai", "agent", "e-commerce", "types", "interface", "agentic middleware", "middleware"],
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",

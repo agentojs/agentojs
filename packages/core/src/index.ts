@@ -1,4 +1,4 @@
-// @agentojs/core — Core types and CommerceBackend interface
+// @agentojs/core — Core types and CommerceProvider interface
 
 export type {
   Product,
@@ -26,4 +26,18 @@ export type {
   OrderListFilters,
 } from './types.js';
 
-export type { CommerceBackend } from './commerce-backend.js';
+export type { CommerceProvider } from './commerce-provider.js';
+
+// v0.3.0 — StoreInfo, ScopeChecker, Logger, Currency Utils
+export type { StoreInfo } from './store-info.js';
+export type { ScopeChecker } from './scope-checker.js';
+export { checkScope } from './scope-checker.js';
+export type { WebhookEmitter } from './webhook-emitter.js';
+export type { Logger } from './logger.js';
+export { ConsoleLogger } from './logger.js';
+export {
+  getCurrencyDecimals,
+  toMinorUnits,
+  fromMinorUnits,
+  formatPrice,
+} from './currency.js';
