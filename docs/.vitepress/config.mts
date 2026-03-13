@@ -33,6 +33,7 @@ export default defineConfig({
             { text: 'Protocol Integration', link: '/guide/protocols' },
             { text: 'Medusa', link: '/guide/medusa' },
             { text: 'WooCommerce', link: '/guide/woocommerce' },
+            { text: 'Shopify', link: '/guide/shopify' },
             { text: 'Generic REST', link: '/guide/generic' },
             { text: 'Custom Provider', link: '/guide/custom-provider' },
           ],
