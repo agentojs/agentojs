@@ -21,9 +21,9 @@ npm install @agentojs/core @agentojs/generic
 ## Configure
 
 ```typescript
-import { GenericRESTBackend } from '@agentojs/generic';
+import { GenericRESTProvider } from '@agentojs/generic';
 
-const backend = new GenericRESTBackend({
+const backend = new GenericRESTProvider({
   baseUrl: 'https://api.example.com',
   apiKey: 'your-api-key',
 });
@@ -32,7 +32,7 @@ const backend = new GenericRESTBackend({
 ### Configuration Options
 
 ```typescript
-interface GenericRESTBackendConfig {
+interface GenericRESTProviderConfig {
   /** Base URL of the REST API */
   baseUrl: string;
   /** API key for authentication */
@@ -49,9 +49,9 @@ interface GenericRESTBackendConfig {
 ## Quick Example
 
 ```typescript
-import { GenericRESTBackend } from '@agentojs/generic';
+import { GenericRESTProvider } from '@agentojs/generic';
 
-const backend = new GenericRESTBackend({
+const backend = new GenericRESTProvider({
   baseUrl: 'https://api.mydealership.com',
   apiKey: 'my-secret-key',
 });
@@ -62,12 +62,12 @@ console.log(products[0].title); // "2024 Tesla Model 3"
 
 ## Field Mapping
 
-The main feature of `@agentojs/generic` is configurable field mapping. Map any API response shape to the standard `CommerceBackend` types.
+The main feature of `@agentojs/generic` is configurable field mapping. Map any API response shape to the standard `CommerceProvider` types.
 
 ### Basic Mapping
 
 ```typescript
-const backend = new GenericRESTBackend({
+const backend = new GenericRESTProvider({
   baseUrl: 'https://api.cardealership.com',
   apiKey: 'dealer-key',
   fieldMap: {
@@ -124,7 +124,7 @@ Custom field mappings take priority over fallback chains.
 Override default endpoint paths to match your API:
 
 ```typescript
-const backend = new GenericRESTBackend({
+const backend = new GenericRESTProvider({
   baseUrl: 'https://api.example.com',
   apiKey: 'key',
   endpointsMap: {
@@ -161,7 +161,7 @@ const backend = new GenericRESTBackend({
 By default, the API key is sent as `Authorization: Bearer <key>`. Configure a custom header:
 
 ```typescript
-const backend = new GenericRESTBackend({
+const backend = new GenericRESTProvider({
   baseUrl: 'https://api.example.com',
   apiKey: 'my-key',
   apiKeyHeader: 'X-API-Key', // sends: X-API-Key: my-key (no Bearer prefix)
@@ -184,9 +184,9 @@ The adapter auto-detects common API response shapes:
 ## Full Example: Car Dealer API
 
 ```typescript
-import { GenericRESTBackend } from '@agentojs/generic';
+import { GenericRESTProvider } from '@agentojs/generic';
 
-const backend = new GenericRESTBackend({
+const backend = new GenericRESTProvider({
   baseUrl: 'https://api.cardealership.com',
   apiKey: 'dealer-key',
   apiKeyHeader: 'X-Dealer-Token',
@@ -224,9 +224,9 @@ console.log(vehicle.description);
 No API key needed -- pass an empty string:
 
 ```typescript
-import { GenericRESTBackend } from '@agentojs/generic';
+import { GenericRESTProvider } from '@agentojs/generic';
 
-const backend = new GenericRESTBackend({
+const backend = new GenericRESTProvider({
   baseUrl: 'https://fakestoreapi.com',
   apiKey: '',
   endpointsMap: {
@@ -250,17 +250,17 @@ console.log(product.title);
 
 ## Unsupported Methods
 
-Payment-related methods throw `GenericBackendNotImplementedError`:
+Payment-related methods throw `GenericProviderNotImplementedError`:
 
 - `createPaymentSessions()`
 - `selectPaymentSession()`
 - `initializePayment()`
 
-Payment flows are API-specific and cannot be generalized. Use a specialized adapter (Medusa, WooCommerce) or implement a [Custom Backend](/guide/custom-backend) for full checkout.
+Payment flows are API-specific and cannot be generalized. Use a specialized adapter (Medusa, WooCommerce) or implement a [Custom Provider](/guide/custom-provider) for full checkout.
 
 ## GenericFieldMapper (Standalone)
 
-Use the field mapper independently of the REST backend:
+Use the field mapper independently of the REST provider:
 
 ```typescript
 import { GenericFieldMapper, getField } from '@agentojs/generic';
@@ -280,31 +280,63 @@ const value = getField({ pricing: { amount: 99 } }, 'pricing.amount'); // 99
 ## Error Handling
 
 ```typescript
-import { GenericBackendNotImplementedError } from '@agentojs/generic';
+import { GenericProviderNotImplementedError } from '@agentojs/generic';
 
 try {
   await backend.createPaymentSessions('cart_123');
 } catch (err) {
-  if (err instanceof GenericBackendNotImplementedError) {
-    console.error('Payment methods not supported for generic backends');
+  if (err instanceof GenericProviderNotImplementedError) {
+    console.error('Payment methods not supported for generic providers');
   }
 }
 ```
 
 Network errors (connection refused, timeout) throw standard `Error` objects.
 
+## Using with createAgent()
+
+The fastest way to serve your API to AI agents is `createAgent()`:
+
+```typescript
+import { createAgent } from '@agentojs/core';
+import { GenericRESTProvider } from '@agentojs/generic';
+
+const agent = await createAgent({
+  store: {
+    name: 'My Dealership',
+    slug: 'my-dealership',
+    currency: 'usd',
+    country: 'us',
+    backendUrl: 'https://api.cardealership.com',
+  },
+  provider: new GenericRESTProvider({
+    baseUrl: 'https://api.cardealership.com',
+    apiKey: 'dealer-key',
+    endpointsMap: { products: '/vehicles', product: '/vehicles/:id' },
+    fieldMap: { product: { id: 'vin', title: 'vehicle_name', price: 'msrp.amount' } },
+  }),
+});
+
+await agent.start(3100);
+// MCP → http://localhost:3100/mcp
+// UCP → http://localhost:3100/ucp/*
+// ACP → http://localhost:3100/acp/*
+```
+
+This creates an Express server with all three protocol endpoints (MCP, UCP, ACP). See [Protocol Integration](/guide/protocols) for details on each protocol.
+
 ## Exports
 
 ```typescript
 import {
-  GenericRESTBackend,
+  GenericRESTProvider,
   GenericFieldMapper,
   getField,
-  GenericBackendNotImplementedError,
+  GenericProviderNotImplementedError,
 } from '@agentojs/generic';
 
 import type {
-  GenericRESTBackendConfig,
+  GenericRESTProviderConfig,
   GenericEndpointsMap,
   GenericFieldMap,
 } from '@agentojs/generic';

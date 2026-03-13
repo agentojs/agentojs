@@ -16,9 +16,9 @@ npm install @agentojs/core @agentojs/woocommerce
 ## Configure
 
 ```typescript
-import { WooCommerceBackend } from '@agentojs/woocommerce';
+import { WooCommerceProvider } from '@agentojs/woocommerce';
 
-const backend = new WooCommerceBackend({
+const backend = new WooCommerceProvider({
   baseUrl: 'https://your-store.com',
   consumerKey: 'ck_your_consumer_key',
   consumerSecret: 'cs_your_consumer_secret',
@@ -28,7 +28,7 @@ const backend = new WooCommerceBackend({
 ### Configuration Options
 
 ```typescript
-interface WooCommerceBackendConfig {
+interface WooCommerceProviderConfig {
   /** WooCommerce site URL (e.g., "https://store.example.com") */
   baseUrl: string;
   /** WooCommerce REST API consumer key (starts with ck_) */
@@ -41,9 +41,9 @@ interface WooCommerceBackendConfig {
 ## Quick Example
 
 ```typescript
-import { WooCommerceBackend } from '@agentojs/woocommerce';
+import { WooCommerceProvider } from '@agentojs/woocommerce';
 
-const backend = new WooCommerceBackend({
+const backend = new WooCommerceProvider({
   baseUrl: 'https://your-store.com',
   consumerKey: 'ck_your_consumer_key',
   consumerSecret: 'cs_your_consumer_secret',
@@ -88,9 +88,9 @@ WooCommerce Store API returns prices in **minor units** (e.g., `"2999"` for $29.
 ## Full Example
 
 ```typescript
-import { WooCommerceBackend } from '@agentojs/woocommerce';
+import { WooCommerceProvider } from '@agentojs/woocommerce';
 
-const backend = new WooCommerceBackend({
+const backend = new WooCommerceProvider({
   baseUrl: 'https://your-store.com',
   consumerKey: 'ck_key',
   consumerSecret: 'cs_secret',
@@ -224,9 +224,40 @@ import type {
 } from '@agentojs/woocommerce';
 ```
 
+## Using with createAgent()
+
+The fastest way to serve your WooCommerce store to AI agents is `createAgent()`:
+
+```typescript
+import { createAgent } from '@agentojs/core';
+import { WooCommerceProvider } from '@agentojs/woocommerce';
+
+const agent = await createAgent({
+  store: {
+    name: 'My Store',
+    slug: 'my-store',
+    currency: 'usd',
+    country: 'us',
+    backendUrl: 'https://your-store.com',
+  },
+  provider: new WooCommerceProvider({
+    baseUrl: 'https://your-store.com',
+    consumerKey: 'ck_your_consumer_key',
+    consumerSecret: 'cs_your_consumer_secret',
+  }),
+});
+
+await agent.start(3100);
+// MCP → http://localhost:3100/mcp
+// UCP → http://localhost:3100/ucp/*
+// ACP → http://localhost:3100/acp/*
+```
+
+This creates an Express server with all three protocol endpoints (MCP, UCP, ACP). See [Protocol Integration](/guide/protocols) for details on each protocol.
+
 ## Exports
 
 ```typescript
-import { WooCommerceBackend, WooCommerceApiError } from '@agentojs/woocommerce';
-import type { WooCommerceBackendConfig } from '@agentojs/woocommerce';
+import { WooCommerceProvider, WooCommerceApiError } from '@agentojs/woocommerce';
+import type { WooCommerceProviderConfig } from '@agentojs/woocommerce';
 ```

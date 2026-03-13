@@ -30,6 +30,7 @@ export default defineConfig({
           text: 'Guide',
           items: [
             { text: 'Getting Started', link: '/guide/getting-started' },
+            { text: 'Protocol Integration', link: '/guide/protocols' },
             { text: 'Medusa', link: '/guide/medusa' },
             { text: 'WooCommerce', link: '/guide/woocommerce' },
             { text: 'Generic REST', link: '/guide/generic' },

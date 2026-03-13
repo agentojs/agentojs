@@ -16,9 +16,9 @@ npm install @agentojs/core @agentojs/medusa
 ## Configure
 
 ```typescript
-import { MedusaBackend } from '@agentojs/medusa';
+import { MedusaProvider } from '@agentojs/medusa';
 
-const backend = new MedusaBackend({
+const backend = new MedusaProvider({
   backendUrl: 'https://your-medusa-store.com',
   apiKey: 'pk_your_publishable_key',
   regionId: 'reg_01ABC', // optional -- auto-detected if omitted
@@ -28,7 +28,7 @@ const backend = new MedusaBackend({
 ### Configuration Options
 
 ```typescript
-interface MedusaBackendConfig {
+interface MedusaProviderConfig {
   /** Medusa server URL (e.g., "https://medusa.example.com") */
   backendUrl: string;
   /** Publishable API key (sent as x-publishable-api-key header) */
@@ -43,9 +43,9 @@ The `regionId` controls currency and country settings for product pricing. If om
 ## Quick Example
 
 ```typescript
-import { MedusaBackend } from '@agentojs/medusa';
+import { MedusaProvider } from '@agentojs/medusa';
 
-const backend = new MedusaBackend({
+const backend = new MedusaProvider({
   backendUrl: 'https://your-medusa-store.com',
   apiKey: 'pk_your_publishable_key',
 });
@@ -58,9 +58,9 @@ console.log(products[0].title);
 ## Full Example
 
 ```typescript
-import { MedusaBackend } from '@agentojs/medusa';
+import { MedusaProvider } from '@agentojs/medusa';
 
-const backend = new MedusaBackend({
+const backend = new MedusaProvider({
   backendUrl: 'https://your-medusa-store.com',
   apiKey: 'pk_your_publishable_key',
   regionId: 'reg_01ABC',
@@ -196,9 +196,39 @@ Common error scenarios:
 
 `healthCheck()` returns `false` (not throws) when the server is unreachable. Other methods throw on connection failure.
 
+## Using with createAgent()
+
+The fastest way to serve your Medusa store to AI agents is `createAgent()`:
+
+```typescript
+import { createAgent } from '@agentojs/core';
+import { MedusaProvider } from '@agentojs/medusa';
+
+const agent = await createAgent({
+  store: {
+    name: 'My Store',
+    slug: 'my-store',
+    currency: 'usd',
+    country: 'us',
+    backendUrl: 'https://your-medusa-store.com',
+  },
+  provider: new MedusaProvider({
+    backendUrl: 'https://your-medusa-store.com',
+    apiKey: 'pk_your_publishable_key',
+  }),
+});
+
+await agent.start(3100);
+// MCP → http://localhost:3100/mcp
+// UCP → http://localhost:3100/ucp/*
+// ACP → http://localhost:3100/acp/*
+```
+
+This creates an Express server with all three protocol endpoints (MCP, UCP, ACP). See [Protocol Integration](/guide/protocols) for details on each protocol.
+
 ## Exports
 
 ```typescript
-import { MedusaBackend, MedusaApiError } from '@agentojs/medusa';
-import type { MedusaBackendConfig } from '@agentojs/medusa';
+import { MedusaProvider, MedusaApiError } from '@agentojs/medusa';
+import type { MedusaProviderConfig } from '@agentojs/medusa';
 ```
