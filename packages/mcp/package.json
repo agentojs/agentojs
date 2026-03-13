@@ -1,0 +1,45 @@
+{
+  "name": "@agentojs/mcp",
+  "version": "0.3.0",
+  "description": "MCP (Model Context Protocol) adapter for AgentOJS agentic middleware",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agentojs/agentojs",
+    "directory": "packages/mcp"
+  },
+  "keywords": ["mcp", "model-context-protocol", "claude", "ai", "agent", "commerce", "e-commerce", "agentic middleware"],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "pnpm build"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "peerDependencies": {
+    "@agentojs/core": "^0.3.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@agentojs/core": "workspace:*",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}
