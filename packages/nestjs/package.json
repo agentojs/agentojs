@@ -1,0 +1,59 @@
+{
+  "name": "@agentojs/nestjs",
+  "version": "0.3.0",
+  "description": "NestJS integration module for AgentOJS — MCP, UCP, ACP protocols",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agentojs/agentojs",
+    "directory": "packages/nestjs"
+  },
+  "keywords": ["nestjs", "mcp", "ucp", "acp", "middleware", "commerce", "ai", "agent", "e-commerce", "agentic middleware"],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "pnpm build"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "peerDependencies": {
+    "@agentojs/core": "^0.3.0",
+    "@agentojs/mcp": "^0.3.0",
+    "@agentojs/ucp": "^0.3.0",
+    "@agentojs/acp": "^0.3.0",
+    "@agentojs/express": "^0.3.0",
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/core": "^11.0.0",
+    "express": "^4.0.0 || ^5.0.0"
+  },
+  "devDependencies": {
+    "@agentojs/core": "workspace:*",
+    "@agentojs/mcp": "workspace:*",
+    "@agentojs/ucp": "workspace:*",
+    "@agentojs/acp": "workspace:*",
+    "@agentojs/express": "workspace:*",
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/core": "^11.0.0",
+    "@nestjs/platform-express": "^11.0.0",
+    "@nestjs/testing": "^11.0.0",
+    "express": "^4.21.0",
+    "@types/express": "^5.0.0",
+    "reflect-metadata": "^0.2.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}
