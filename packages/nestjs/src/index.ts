@@ -3,4 +3,5 @@
 export type { AgentOJSModuleOptions, AgentOJSAsyncModuleOptions } from './types.js';
 export { AgentOJSModule } from './agentojs.module.js';
 export { AgentOJSMiddleware } from './agentojs.middleware.js';
+export { AgentOJSHealthIndicator } from './agentojs-health.indicator.js';
 export { AGENTOJS_OPTIONS } from './constants.js';

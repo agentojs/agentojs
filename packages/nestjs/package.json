@@ -38,7 +38,13 @@
     "@agentojs/express": "^0.3.0",
     "@nestjs/common": "^11.0.0",
     "@nestjs/core": "^11.0.0",
-    "express": "^4.0.0 || ^5.0.0"
+    "express": "^4.0.0 || ^5.0.0",
+    "@nestjs/terminus": "^11.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@nestjs/terminus": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@agentojs/core": "workspace:*",
@@ -49,6 +55,7 @@
     "@nestjs/common": "^11.0.0",
     "@nestjs/core": "^11.0.0",
     "@nestjs/platform-express": "^11.0.0",
+    "@nestjs/terminus": "^11.0.0",
     "@nestjs/testing": "^11.0.0",
     "express": "^4.21.0",
     "@types/express": "^5.0.0",
