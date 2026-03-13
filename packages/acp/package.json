@@ -31,10 +31,18 @@
     "node": ">=20.0.0"
   },
   "peerDependencies": {
-    "@agentojs/core": "^0.3.0"
+    "@agentojs/core": "^0.3.0",
+    "express": "^4.0.0 || ^5.0.0"
+  },
+  "optionalDependencies": {
+    "stripe": "^17.0.0"
   },
   "devDependencies": {
     "@agentojs/core": "workspace:*",
+    "express": "^4.21.0",
+    "@types/express": "^5.0.0",
+    "supertest": "^7.0.0",
+    "@types/supertest": "^6.0.0",
     "typescript": "^5.7.0",
     "vitest": "^3.0.0"
   }

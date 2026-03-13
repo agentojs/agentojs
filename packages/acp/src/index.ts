@@ -33,3 +33,11 @@ export { AcpWebhookEmitter } from './webhook-service.js';
 
 // Idempotency Cache
 export { IdempotencyCache } from './idempotency.js';
+
+// Router
+export { createAcpRouter } from './create-acp-router.js';
+export type { AcpRouterOptions } from './create-acp-router.js';
+
+// Middleware
+export { acpHeadersMiddleware } from './middleware/acp-headers.js';
+export { acpErrorHandler } from './middleware/error-handler.js';
