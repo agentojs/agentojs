@@ -1,0 +1,41 @@
+{
+  "name": "@agentojs/shopify",
+  "version": "0.3.0",
+  "description": "Shopify Storefront API provider for AgentOJS agentic middleware",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agentojs/agentojs",
+    "directory": "packages/shopify"
+  },
+  "keywords": ["mcp", "ucp", "acp", "commerce", "ai", "agent", "shopify", "storefront", "e-commerce", "agentic middleware", "middleware"],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "pnpm build"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "peerDependencies": {
+    "@agentojs/core": "^0.3.0"
+  },
+  "devDependencies": {
+    "@agentojs/core": "workspace:*",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}
