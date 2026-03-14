@@ -96,13 +96,19 @@ async function main(): Promise<void> {
   // Print success message
   const pm = options.packageManager;
   const run = pm === 'npm' ? 'npm run' : pm;
+  const protocols = options.protocols.map((p) => p.toUpperCase()).join(', ');
 
-  console.log('\x1b[32mDone!\x1b[0m Project created successfully.\n');
-  console.log('Next steps:\n');
-  console.log(`  \x1b[36mcd ${options.projectName}\x1b[0m`);
-  console.log(`  \x1b[36mcp .env.example .env\x1b[0m        # Fill in your credentials`);
-  console.log(`  \x1b[36m${pm} install\x1b[0m`);
-  console.log(`  \x1b[36m${run} dev\x1b[0m\n`);
+  console.log('\x1b[32m\x1b[1m  Success!\x1b[0m Project created successfully.\n');
+  console.log(`  \x1b[2mBackend:\x1b[0m   ${options.backend}`);
+  console.log(`  \x1b[2mProtocols:\x1b[0m ${protocols}`);
+  console.log(`  \x1b[2mDirectory:\x1b[0m ${targetDir}\n`);
+  console.log('  \x1b[1mNext steps:\x1b[0m\n');
+  console.log(`  \x1b[33m1.\x1b[0m \x1b[36mcd ${options.projectName}\x1b[0m`);
+  console.log(`  \x1b[33m2.\x1b[0m \x1b[36mcp .env.example .env\x1b[0m`);
+  console.log(`     \x1b[2mEdit .env and fill in your backend credentials\x1b[0m`);
+  console.log(`  \x1b[33m3.\x1b[0m \x1b[36m${pm} install\x1b[0m`);
+  console.log(`  \x1b[33m4.\x1b[0m \x1b[36m${run} dev\x1b[0m\n`);
+  console.log('  \x1b[2mDocs:\x1b[0m https://agentojs.com/guide/cli\n');
 }
 
 main().catch((err) => {
