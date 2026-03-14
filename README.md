@@ -1,14 +1,18 @@
 # AgentOJS
 
+[![CI](https://github.com/KulinichOlexii/agentomcp/actions/workflows/ci.yml/badge.svg)](https://github.com/KulinichOlexii/agentomcp/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![npm @agentojs/core](https://img.shields.io/npm/v/@agentojs/core?label=@agentojs/core)](https://www.npmjs.com/package/@agentojs/core)
 [![npm @agentojs/medusa](https://img.shields.io/npm/v/@agentojs/medusa?label=@agentojs/medusa)](https://www.npmjs.com/package/@agentojs/medusa)
 [![npm @agentojs/woocommerce](https://img.shields.io/npm/v/@agentojs/woocommerce?label=@agentojs/woocommerce)](https://www.npmjs.com/package/@agentojs/woocommerce)
 [![npm @agentojs/generic](https://img.shields.io/npm/v/@agentojs/generic?label=@agentojs/generic)](https://www.npmjs.com/package/@agentojs/generic)
+[![npm @agentojs/shopify](https://img.shields.io/npm/v/@agentojs/shopify?label=@agentojs/shopify)](https://www.npmjs.com/package/@agentojs/shopify)
 [![npm @agentojs/mcp](https://img.shields.io/npm/v/@agentojs/mcp?label=@agentojs/mcp)](https://www.npmjs.com/package/@agentojs/mcp)
 [![npm @agentojs/ucp](https://img.shields.io/npm/v/@agentojs/ucp?label=@agentojs/ucp)](https://www.npmjs.com/package/@agentojs/ucp)
 [![npm @agentojs/acp](https://img.shields.io/npm/v/@agentojs/acp?label=@agentojs/acp)](https://www.npmjs.com/package/@agentojs/acp)
 [![npm @agentojs/express](https://img.shields.io/npm/v/@agentojs/express?label=@agentojs/express)](https://www.npmjs.com/package/@agentojs/express)
+[![npm @agentojs/nestjs](https://img.shields.io/npm/v/@agentojs/nestjs?label=@agentojs/nestjs)](https://www.npmjs.com/package/@agentojs/nestjs)
+[![npm create-agentojs-app](https://img.shields.io/npm/v/create-agentojs-app?label=create-agentojs-app)](https://www.npmjs.com/package/create-agentojs-app)
 
 **Open-source agentic middleware for any commerce backend. One SDK. Three AI protocols. Zero commission.**
 
@@ -50,11 +54,13 @@ All three protocols are enabled by default. Disable any with `enableMcp: false`,
 | [`@agentojs/medusa`](packages/medusa) | Medusa.js v2 Store API adapter | [![npm](https://img.shields.io/npm/v/@agentojs/medusa)](https://www.npmjs.com/package/@agentojs/medusa) |
 | [`@agentojs/woocommerce`](packages/woocommerce) | WooCommerce dual-API adapter (Store API + REST API) | [![npm](https://img.shields.io/npm/v/@agentojs/woocommerce)](https://www.npmjs.com/package/@agentojs/woocommerce) |
 | [`@agentojs/generic`](packages/generic) | Generic REST API adapter with configurable field mapping | [![npm](https://img.shields.io/npm/v/@agentojs/generic)](https://www.npmjs.com/package/@agentojs/generic) |
-| [`@agentojs/shopify`](packages/shopify) | Shopify Storefront API adapter *(coming soon)* | — |
+| [`@agentojs/shopify`](packages/shopify) | Shopify Storefront API adapter | [![npm](https://img.shields.io/npm/v/@agentojs/shopify)](https://www.npmjs.com/package/@agentojs/shopify) |
 | [`@agentojs/mcp`](packages/mcp) | MCP server — tools & resources for Claude | [![npm](https://img.shields.io/npm/v/@agentojs/mcp)](https://www.npmjs.com/package/@agentojs/mcp) |
 | [`@agentojs/ucp`](packages/ucp) | UCP router — REST endpoints for Google/Gemini | [![npm](https://img.shields.io/npm/v/@agentojs/ucp)](https://www.npmjs.com/package/@agentojs/ucp) |
 | [`@agentojs/acp`](packages/acp) | ACP router — checkout sessions for ChatGPT + Stripe | [![npm](https://img.shields.io/npm/v/@agentojs/acp)](https://www.npmjs.com/package/@agentojs/acp) |
 | [`@agentojs/express`](packages/express) | Express middleware mounting all three protocols | [![npm](https://img.shields.io/npm/v/@agentojs/express)](https://www.npmjs.com/package/@agentojs/express) |
+| [`@agentojs/nestjs`](packages/nestjs) | NestJS module for AgentOJS integration | [![npm](https://img.shields.io/npm/v/@agentojs/nestjs)](https://www.npmjs.com/package/@agentojs/nestjs) |
+| [`create-agentojs-app`](packages/create-agentojs-app) | CLI scaffolding tool — `npm create agentojs-app` | [![npm](https://img.shields.io/npm/v/create-agentojs-app)](https://www.npmjs.com/package/create-agentojs-app) |
 
 ## Architecture
 
@@ -144,7 +150,9 @@ Every adapter implements these 19 methods:
 
 See the [`examples/`](examples/) directory for runnable demos:
 
-- [`medusa-basic`](examples/medusa-basic/) — Connect to Medusa, search products
+- [`medusa-basic`](examples/medusa-basic/) — Medusa v2 + createAgent() serving MCP, UCP, and ACP
+- [`shopify-basic`](examples/shopify-basic/) — Shopify Storefront API + createAgent()
+- [`express-custom`](examples/express-custom/) — Manual Express setup with agentMiddleware and GenericRESTProvider
 - [`woocommerce-basic`](examples/woocommerce-basic/) — Connect to WooCommerce, create a cart
 - [`generic-car-dealer`](examples/generic-car-dealer/) — Custom field mapping for a car dealer API
 - [`multi-store`](examples/multi-store/) — Query multiple providers with one interface
