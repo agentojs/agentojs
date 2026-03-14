@@ -1,7 +1,7 @@
 {
   "name": "@agentojs/woocommerce",
-  "version": "0.1.0",
-  "description": "WooCommerce adapter for AI commerce agents",
+  "version": "0.3.0",
+  "description": "WooCommerce provider for AgentOJS agentic middleware",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
@@ -20,7 +20,7 @@
     "url": "https://github.com/agentojs/agentojs",
     "directory": "packages/woocommerce"
   },
-  "keywords": ["mcp", "ucp", "acp", "commerce", "ai", "agent", "woocommerce", "woo", "e-commerce"],
+  "keywords": ["mcp", "ucp", "acp", "commerce", "ai", "agent", "woocommerce", "woo", "e-commerce", "agentic middleware", "middleware"],
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",
@@ -31,7 +31,7 @@
     "node": ">=20.0.0"
   },
   "peerDependencies": {
-    "@agentojs/core": "^0.1.0"
+    "@agentojs/core": "^0.3.0"
   },
   "devDependencies": {
     "@agentojs/core": "workspace:*",

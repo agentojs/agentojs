@@ -155,6 +155,37 @@ interface GenericRESTBackendConfig {
 }
 ```
 
+## Using with createAgent
+
+The fastest way to expose your custom REST API to AI agents via all three protocols (MCP, UCP, ACP):
+
+```typescript
+import { createAgent } from '@agentojs/core';
+import { GenericRESTBackend } from '@agentojs/generic';
+
+const agent = await createAgent({
+  store: {
+    slug: 'my-api',
+    name: 'My Custom Store',
+    currency: 'usd',
+    country: 'us',
+    backendUrl: 'https://api.example.com',
+  },
+  provider: new GenericRESTBackend({
+    baseUrl: 'https://api.example.com',
+    apiKey: 'my-secret-key',
+    fieldMap: {
+      product: { title: 'name', price: 'retail_price' },
+    },
+  }),
+});
+
+await agent.start(3000);
+// MCP: POST http://localhost:3000/mcp
+// UCP: http://localhost:3000/ucp/*
+// ACP: http://localhost:3000/acp/*
+```
+
 ## Response Shape Detection
 
 The adapter auto-detects common API response shapes:

@@ -117,6 +117,35 @@ const order = await backend.completeCart(cart.id);
 console.log(`Order #${order.display_id} placed!`);
 ```
 
+## Using with createAgent
+
+The fastest way to expose your WooCommerce store to AI agents via all three protocols (MCP, UCP, ACP):
+
+```typescript
+import { createAgent } from '@agentojs/core';
+import { WooCommerceBackend } from '@agentojs/woocommerce';
+
+const agent = await createAgent({
+  store: {
+    slug: 'my-woo-store',
+    name: 'My WooCommerce Store',
+    currency: 'usd',
+    country: 'us',
+    backendUrl: 'https://your-store.com',
+  },
+  provider: new WooCommerceBackend({
+    baseUrl: 'https://your-store.com',
+    consumerKey: 'ck_your_consumer_key',
+    consumerSecret: 'cs_your_consumer_secret',
+  }),
+});
+
+await agent.start(3000);
+// MCP: POST http://localhost:3000/mcp
+// UCP: http://localhost:3000/ucp/*
+// ACP: http://localhost:3000/acp/*
+```
+
 ## API Reference
 
 ### Products

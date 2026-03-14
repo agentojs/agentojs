@@ -85,6 +85,34 @@ const order = await backend.completeCart(cart.id);
 console.log(`Order ${order.display_id} created!`);
 ```
 
+## Using with createAgent
+
+The fastest way to expose your Medusa store to AI agents via all three protocols (MCP, UCP, ACP):
+
+```typescript
+import { createAgent } from '@agentojs/core';
+import { MedusaBackend } from '@agentojs/medusa';
+
+const agent = await createAgent({
+  store: {
+    slug: 'my-medusa-store',
+    name: 'My Medusa Store',
+    currency: 'usd',
+    country: 'us',
+    backendUrl: 'https://your-medusa-store.com',
+  },
+  provider: new MedusaBackend({
+    backendUrl: 'https://your-medusa-store.com',
+    apiKey: 'pk_your_publishable_key',
+  }),
+});
+
+await agent.start(3000);
+// MCP: POST http://localhost:3000/mcp
+// UCP: http://localhost:3000/ucp/*
+// ACP: http://localhost:3000/acp/*
+```
+
 ## API Reference
 
 | Method | Description |

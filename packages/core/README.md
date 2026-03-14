@@ -19,11 +19,14 @@ pnpm add @agentojs/core
 
 ## What's Included
 
-- `CommerceBackend` -- the unified interface that all adapters implement (19 methods)
+- `CommerceProvider` -- the unified interface that all adapters implement (19 methods)
 - `Product`, `Cart`, `Order`, `Address`, `Region` and 15+ supporting types
 - `PaginatedResponse<T>`, `ProductSearchFilters`, `OrderListFilters` -- query/response generics
-
-This package contains no runtime code. It exists so adapters and consumers share the same type definitions.
+- `StoreInfo` -- store metadata type (slug, name, currency, country, backendUrl)
+- `ScopeChecker` / `checkScope` -- scope-based access control interface and helper
+- `Logger` / `ConsoleLogger` -- pluggable logging interface with console default
+- `getCurrencyDecimals`, `toMinorUnits`, `fromMinorUnits`, `formatPrice` -- currency utilities
+- `createAgent` -- convenience factory that creates a fully configured Express server with MCP, UCP, and ACP endpoints
 
 ## Usage
 
@@ -163,6 +166,37 @@ The `CommerceBackend` interface defines 19 methods across 7 categories:
 | `PaginatedResponse<T>` | `{ data: T[], count, offset, limit }` |
 | `ProductSearchFilters` | `{ q?, category_id[]?, collection_id[]?, tags[]?, price_min?, price_max?, limit?, offset? }` |
 | `OrderListFilters` | `{ email?, status?, limit?, offset? }` |
+
+## createAgent -- Quick Start Server
+
+The fastest way to get a fully working AI commerce server:
+
+```typescript
+import { createAgent } from '@agentojs/core';
+import { MedusaBackend } from '@agentojs/medusa';
+
+const agent = await createAgent({
+  store: {
+    slug: 'my-store',
+    name: 'My Store',
+    currency: 'usd',
+    country: 'us',
+    backendUrl: 'https://your-medusa-store.com',
+  },
+  provider: new MedusaBackend({
+    backendUrl: 'https://your-medusa-store.com',
+    apiKey: 'pk_your_publishable_key',
+  }),
+  port: 3000,
+});
+
+await agent.start();
+// MCP: POST http://localhost:3000/mcp
+// UCP: http://localhost:3000/ucp/*
+// ACP: http://localhost:3000/acp/*
+```
+
+Requires `@agentojs/express`, `@agentojs/mcp`, `@agentojs/ucp`, `@agentojs/acp`, and `express` as peer dependencies.
 
 ## Available Adapters
 
