@@ -1,0 +1,30 @@
+{
+  "name": "nestjs-basic-example",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/main.ts",
+    "build": "tsc",
+    "start": "node dist/main.js"
+  },
+  "dependencies": {
+    "@agentojs/core": "workspace:^0.3.0",
+    "@agentojs/medusa": "workspace:^0.3.0",
+    "@agentojs/nestjs": "workspace:^0.3.0",
+    "@agentojs/mcp": "workspace:^0.3.0",
+    "@agentojs/ucp": "workspace:^0.3.0",
+    "@agentojs/acp": "workspace:^0.3.0",
+    "@agentojs/express": "workspace:^0.3.0",
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/core": "^11.0.0",
+    "@nestjs/platform-express": "^11.0.0",
+    "reflect-metadata": "^0.2.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.0.0",
+    "typescript": "^5.7.0"
+  }
+}

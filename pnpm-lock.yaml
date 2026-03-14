@@ -12,6 +12,40 @@ importers:
         specifier: ^1.6.4
         version: 1.6.4(@algolia/client-search@5.49.2)(@types/node@25.5.0)(postcss@8.5.8)(search-insights@2.17.3)(typescript@5.9.3)
 
+  examples/express-custom:
+    dependencies:
+      '@agentojs/core':
+        specifier: workspace:^0.3.0
+        version: link:../../packages/core
+      '@agentojs/express':
+        specifier: workspace:^0.3.0
+        version: link:../../packages/express
+      '@agentojs/generic':
+        specifier: workspace:^0.3.0
+        version: link:../../packages/generic
+      '@agentojs/mcp':
+        specifier: workspace:^0.3.0
+        version: link:../../packages/mcp
+      '@agentojs/ucp':
+        specifier: workspace:^0.3.0
+        version: link:../../packages/ucp
+      dotenv:
+        specifier: ^16.0.0
+        version: 16.6.1
+      express:
+        specifier: ^4.21.0
+        version: 4.22.1
+    devDependencies:
+      '@types/express':
+        specifier: ^5.0.0
+        version: 5.0.6
+      tsx:
+        specifier: ^4.0.0
+        version: 4.21.0
+      typescript:
+        specifier: ^5.7.0
+        version: 5.9.3
+
   examples/generic-car-dealer:
     dependencies:
       '@agentojs/core':
@@ -71,6 +105,55 @@ importers:
         specifier: workspace:*
         version: link:../../packages/woocommerce
     devDependencies:
+      typescript:
+        specifier: ^5.7.0
+        version: 5.9.3
+
+  examples/nestjs-basic:
+    dependencies:
+      '@agentojs/acp':
+        specifier: workspace:^0.3.0
+        version: link:../../packages/acp
+      '@agentojs/core':
+        specifier: workspace:^0.3.0
+        version: link:../../packages/core
+      '@agentojs/express':
+        specifier: workspace:^0.3.0
+        version: link:../../packages/express
+      '@agentojs/mcp':
+        specifier: workspace:^0.3.0
+        version: link:../../packages/mcp
+      '@agentojs/medusa':
+        specifier: workspace:^0.3.0
+        version: link:../../packages/medusa
+      '@agentojs/nestjs':
+        specifier: workspace:^0.3.0
+        version: link:../../packages/nestjs
+      '@agentojs/ucp':
+        specifier: workspace:^0.3.0
+        version: link:../../packages/ucp
+      '@nestjs/common':
+        specifier: ^11.0.0
+        version: 11.1.16(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      '@nestjs/core':
+        specifier: ^11.0.0
+        version: 11.1.16(@nestjs/common@11.1.16(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/platform-express@11.1.16)(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      '@nestjs/platform-express':
+        specifier: ^11.0.0
+        version: 11.1.16(@nestjs/common@11.1.16(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.16)
+      dotenv:
+        specifier: ^16.0.0
+        version: 16.6.1
+      express:
+        specifier: ^4.21.0
+        version: 4.22.1
+      reflect-metadata:
+        specifier: ^0.2.0
+        version: 0.2.2
+    devDependencies:
+      tsx:
+        specifier: ^4.0.0
+        version: 4.21.0
       typescript:
         specifier: ^5.7.0
         version: 5.9.3
@@ -143,6 +226,15 @@ importers:
       supertest:
         specifier: ^7.0.0
         version: 7.2.2
+      typescript:
+        specifier: ^5.7.0
+        version: 5.9.3
+      vitest:
+        specifier: ^3.0.0
+        version: 3.2.4(@types/node@25.5.0)(tsx@4.21.0)
+
+  packages/auth:
+    devDependencies:
       typescript:
         specifier: ^5.7.0
         version: 5.9.3

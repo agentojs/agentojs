@@ -47,9 +47,12 @@ export interface GenericFieldMap {
   order?: Record<string, string>;
 }
 
-// ─── Backend Config ───────────────────────────────────────────────
+// ─── Provider Config ─────────────────────────────────────────────
 
-export interface GenericRESTBackendConfig {
+/** @deprecated Use GenericRESTProviderConfig */
+export type GenericRESTBackendConfig = GenericRESTProviderConfig;
+
+export interface GenericRESTProviderConfig {
   baseUrl: string;
   apiKey: string;
   /** Header name for the API key (default: Authorization with Bearer prefix) */

@@ -27,6 +27,7 @@ export type {
 } from './types.js';
 
 export type { CommerceProvider } from './commerce-provider.js';
+export type { CommerceBackend } from './commerce-backend.js';
 
 // v0.3.0 — StoreInfo, ScopeChecker, Logger, Currency Utils
 export type { StoreInfo } from './store-info.js';
