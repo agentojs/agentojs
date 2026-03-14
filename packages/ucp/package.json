@@ -14,13 +14,32 @@
       "require": "./dist/index.js"
     }
   },
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/agentojs/agentojs",
     "directory": "packages/ucp"
   },
-  "keywords": ["ucp", "google", "gemini", "commerce", "ai", "agent", "checkout", "e-commerce", "agentic middleware", "middleware"],
+  "bugs": {
+    "url": "https://github.com/agentojs/agentojs/issues"
+  },
+  "homepage": "https://github.com/agentojs/agentojs/tree/main/packages/ucp#readme",
+  "keywords": [
+    "ucp",
+    "google",
+    "gemini",
+    "commerce",
+    "ai",
+    "agent",
+    "checkout",
+    "e-commerce",
+    "agentic middleware",
+    "middleware"
+  ],
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",

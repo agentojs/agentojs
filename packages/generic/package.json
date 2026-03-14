@@ -14,13 +14,34 @@
       "require": "./dist/index.js"
     }
   },
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/agentojs/agentojs",
     "directory": "packages/generic"
   },
-  "keywords": ["mcp", "ucp", "acp", "commerce", "ai", "agent", "rest", "generic", "e-commerce", "field-mapping", "agentic middleware", "middleware"],
+  "bugs": {
+    "url": "https://github.com/agentojs/agentojs/issues"
+  },
+  "homepage": "https://github.com/agentojs/agentojs/tree/main/packages/generic#readme",
+  "keywords": [
+    "mcp",
+    "ucp",
+    "acp",
+    "commerce",
+    "ai",
+    "agent",
+    "rest",
+    "generic",
+    "e-commerce",
+    "field-mapping",
+    "agentic middleware",
+    "middleware"
+  ],
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",

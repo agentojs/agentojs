@@ -1,6 +1,7 @@
 src/
 __tests__/
-tsconfig.json
-vitest.config.ts
 *.test.ts
-*.test.js
+*.spec.ts
+tsconfig.json
+.gitignore
+vitest.config.ts

@@ -7,13 +7,33 @@
   "bin": {
     "create-agentojs-app": "./dist/index.js"
   },
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/agentojs/agentojs",
     "directory": "packages/create-agentojs-app"
   },
-  "keywords": ["create", "scaffold", "cli", "agentojs", "mcp", "ucp", "acp", "commerce", "ai", "agent"],
+  "bugs": {
+    "url": "https://github.com/agentojs/agentojs/issues"
+  },
+  "homepage": "https://github.com/agentojs/agentojs/tree/main/packages/create-agentojs-app#readme",
+  "keywords": [
+    "create",
+    "scaffold",
+    "cli",
+    "agentojs",
+    "mcp",
+    "ucp",
+    "acp",
+    "commerce",
+    "ai",
+    "agent",
+    "agentic middleware"
+  ],
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",

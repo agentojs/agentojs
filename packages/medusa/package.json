@@ -14,13 +14,33 @@
       "require": "./dist/index.js"
     }
   },
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/agentojs/agentojs",
     "directory": "packages/medusa"
   },
-  "keywords": ["mcp", "ucp", "acp", "commerce", "ai", "agent", "medusa", "medusa-v2", "e-commerce", "agentic middleware", "middleware"],
+  "bugs": {
+    "url": "https://github.com/agentojs/agentojs/issues"
+  },
+  "homepage": "https://github.com/agentojs/agentojs/tree/main/packages/medusa#readme",
+  "keywords": [
+    "mcp",
+    "ucp",
+    "acp",
+    "commerce",
+    "ai",
+    "agent",
+    "medusa",
+    "medusa-v2",
+    "e-commerce",
+    "agentic middleware",
+    "middleware"
+  ],
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",
